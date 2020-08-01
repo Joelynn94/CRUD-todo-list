@@ -89,6 +89,7 @@ h1 {
   outline: none;
   border: none;
   color: lime;
+  cursor: pointer;
 }
 
 .deleteButton {
@@ -98,5 +99,6 @@ h1 {
   outline: none;
   border: none;
   color: #E00;
+  cursor: pointer;
 }
 
