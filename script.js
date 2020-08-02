@@ -1,4 +1,3 @@
-const addButton = document.querySelector('.addButton')
 const container = document.querySelector('.container')
 const userInput = document.querySelector('.user_input')
 const form = document.querySelector('.form')
@@ -12,6 +11,7 @@ form.addEventListener('submit', (event) => {
   let itemId = String(Date.now())
   // Get/assign input value
   let todoItem = userInput.value
+  console.log(todoItem)
   // Pass ID and item into functions
   addItemToDOM(itemId, todoItem)
   addItemToArray(itemId, todoItem)
@@ -34,7 +34,7 @@ function addItemToDOM(itemId, todoItem) {
   // add 'item_input' class for styling
   input.classList.add('item_input')
   // add todo item text to input
-  input.textContent = todoItem
+  input.value = todoItem
   // set disabled to true by default
   input.disabled = true
 
