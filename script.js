@@ -21,12 +21,16 @@ form.addEventListener('submit', (event) => {
   userInput.value = '';
 })
 
-function addItemToDOM(itemId, todoItem) {
+function createTodoDiv() {
   // create item div 
   const todoDiv = document.createElement('div')
   // add 'item' class for styling
   todoDiv.classList.add('item')
 
+  return todoDiv
+}
+
+function createInput(itemId, todoItem) {
   // create input element 
   const input = document.createElement('input')
   // set a uniquie ID to all inputs
@@ -38,20 +42,40 @@ function addItemToDOM(itemId, todoItem) {
   // set disabled to true by default
   input.disabled = true
 
+  return input
+}
 
+function createEditButton(buttonText) {
   // create edit button
   const editButton = document.createElement('button')
   // add 'editButton' class for styling
   editButton.classList.add('editButton')
   // set edit button text to 'Edit' by default
-  editButton.textContent = 'Edit'
+  editButton.textContent = buttonText
 
+  return editButton
+}
+
+function createDeleteButton(buttonText) {
   // create delete button
   const deleteButton = document.createElement('button')
   // add 'deleteButton' class for styling
   deleteButton.classList.add('deleteButton')
   // set delete button text to 'Delete' by default
-  deleteButton.textContent = 'Delete'
+  deleteButton.textContent = buttonText
+
+  return deleteButton
+}
+
+function addItemToDOM(itemId, todoItem) {
+  // call createTodoDiv
+  const todoDiv = createTodoDiv()
+  // call createInput
+  const input = createInput(itemId, todoItem)
+  // call editButton and add the desired text
+  const editButton = createEditButton('Edit')
+  // call deleteButton and add the desired text
+  const deleteButton = createDeleteButton('Delete')
 
   // add todoDiv to the DOM
   container.appendChild(todoDiv)
